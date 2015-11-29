@@ -22,7 +22,6 @@ var Street = function() {
   }
 
   var update = function(dt) {
-    var VELOCITY = 0.05
     for(var i = 0; i < container.children.length; i++) {
       var streetLine = container.children[i];
       streetLine.position.y = streetLine.position.y + VELOCITY * dt
@@ -33,28 +32,8 @@ var Street = function() {
     }
   }
 
-  var isInRails = function(number, xPosition) {
-    return (number * widthOfStreet < xPosition) && (xPosition < (number + 1) * widthOfStreet);
-  }
-
-  var inRails = function(xPosition) {
-    for(var i = 0; i < numberOfStreets; i++) {
-      if (isInRails(i, xPosition)) {
-        return i;
-      }
-    }
-  }
-
-  var positionForRail = function(number){
-    var maxWidth = ((number + 1) * widthOfStreet) - widthOfSeparation;
-    var minWidth = number * widthOfStreet;
-    return (maxWidth + minWidth) / 2.0;
-  }
-
   return {
     update: update,
-    container: container,
-    inRails: inRails,
-    positionForRail: positionForRail
+    container: container
   };
 }

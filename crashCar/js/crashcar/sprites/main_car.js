@@ -1,7 +1,4 @@
 var MainCar = function(){
-  var WIDTH_CAR = 70;
-  var HEIGHT_CAR = 120;
-
   var carTextures = PIXI.Texture.fromImage("img/crashcar/cars-steam.png");
   var mainCarTexture = new PIXI.Texture(carTextures, new PIXI.Rectangle(0,0, WIDTH_CAR, HEIGHT_CAR));
   var mainCar = new PIXI.Sprite(mainCarTexture);
