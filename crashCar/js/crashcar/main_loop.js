@@ -1,5 +1,5 @@
 // create a renderer instance.
-var renderer = PIXI.autoDetectRenderer(400, 550, { backgroundColor : 0x33333333, class: 'game' });
+var renderer = PIXI.autoDetectRenderer(400, 550, { backgroundColor : 0x33333333 });
 
 // add the renderer view element to the DOM
 document.getElementById('game').appendChild(renderer.view);
@@ -7,30 +7,22 @@ document.getElementById('game').appendChild(renderer.view);
 // create an new instance of a pixi stage
 var stage = new PIXI.Container();
 
-// create a texture from an image path
-var texture = PIXI.Texture.fromImage("img/bunny.png");
-// create a new Sprite using the texture
-var bunny = new PIXI.Sprite(texture);
+street = Street(400, 550, 4);
+stage.addChild(street.container);
 
-// center the sprites anchor point
-bunny.anchor.x = 0.5;
-bunny.anchor.y = 0.5;
-
-// move the sprite t the center of the screen
-bunny.position.x = 200;
-bunny.position.y = 150;
-
-stage.addChild(bunny);
+//var rect = new PIXI.Graphics();
+//rect.interactive = true;
+//rect.hitArea = new PIXI.Rectangle(0,0, 400, 550);
+//rect.click = function(ev) { console.log(street.inRails(ev.data.global.x)); }
+//stage.addChild(rect);
 
 requestAnimationFrame(animate);
+
 var lastCurrentTime = 0;
+
 function animate(currentTime) {
-  dt = currentTime - lastCurrentTime;
-  lastCurrentTime = currentTime
-
-  //console.log(dt, lastCurrentTime);
-
-  bunny.rotation += 0.1;
+  dt = 100/6.0;
+  street.update(dt);
 
   // render the stage
   renderer.render(stage);
