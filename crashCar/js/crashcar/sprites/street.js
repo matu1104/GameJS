@@ -1,11 +1,8 @@
-var Street = function(width, height, numberOfStreets) {
+var Street = function() {
   var BLOCK_SIZE = 45;
   var EXTRA_BLOCKS = 3;
 
   var container = new PIXI.Container();
-
-  var widthOfStreet = width * 1.0 / numberOfStreets;
-  var widthOfSeparation = widthOfStreet / 10.0;
 
   var numberOfBlocksInView = height / (2 * BLOCK_SIZE);
   var numberOfBlocks = numberOfBlocksInView + EXTRA_BLOCKS;
@@ -48,9 +45,16 @@ var Street = function(width, height, numberOfStreets) {
     }
   }
 
+  var positionForRail = function(number){
+    var maxWidth = ((number + 1) * widthOfStreet) - widthOfSeparation;
+    var minWidth = number * widthOfStreet;
+    return (maxWidth + minWidth) / 2.0;
+  }
+
   return {
     update: update,
     container: container,
-    inRails: inRails
+    inRails: inRails,
+    positionForRail: positionForRail
   };
 }
