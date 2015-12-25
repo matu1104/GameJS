@@ -7,7 +7,6 @@ document.getElementById('game').appendChild(renderer.view);
 // create an new instance of a pixi stage
 var stage = new PIXI.Container();
 
-
 street = Street();
 stage.addChild(street.container);
 
@@ -45,6 +44,12 @@ var lastCurrentTime = 0;
 var timeOnGame = 0;
 var carLines = [];
 
+var carLinesContainer = new PIXI.Container();
+stage.addChild(carLinesContainer);
+
+var score = Score('Score', 0);
+stage.addChild(score.container);
+
 function animate(currentTime) {
   dt =  100/6.0 // or currentTime - lastCurrentTime;
   lastCurrentTime = currentTime;
@@ -53,7 +58,7 @@ function animate(currentTime) {
   if (timeOnGame > 1500) {
     var lineCar = LineCar();
     carLines.push(lineCar);
-    stage.addChild(lineCar.container);
+    carLinesContainer.addChild(lineCar.container);
     timeOnGame = 0;
   }
 
@@ -63,12 +68,12 @@ function animate(currentTime) {
   }
 
   if (deleteFirst) {
-    stage.removeChild(carLines.shift().container);
+    carLinesContainer.removeChild(carLines.shift().container);
+    score.increment(1);
   }
 
   street.update(dt);
 
-  // render the stage
   renderer.render(stage);
 
   requestAnimationFrame(animate);
