@@ -62,8 +62,16 @@ var LineCar = function(){
       return false;
     }
 
+    var colisionDetected = function(rail) {
+      var sampleCar = container.children[0];
+       return sampleCar.position.y > CAR_Y_POSITION - (3 / 2 * HEIGHT_CAR) + 10 &&
+       CAR_Y_POSITION - (HEIGHT_CAR / 2) + 10 > sampleCar.position.y &&
+       cars[rail];
+    }
+
     return {
       update: update,
-      container: container
+      container: container,
+      colisionDetected: colisionDetected
     };
 };

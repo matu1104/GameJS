@@ -18,6 +18,7 @@ if (mobilecheck()) {
   width = window.innerWidth;
   height = window.innerHeight;
 }
+var CAR_Y_POSITION = height - HEIGHT_CAR / 2.0 - 20;
 
 var numberOfStreets = 5;
 var widthOfStreet = width * 1.0 / numberOfStreets;
@@ -25,7 +26,7 @@ var widthOfSeparation = widthOfStreet / 10.0;
 
 var isInRails = function(number, xPosition) {
   return (number * widthOfStreet < xPosition) && (xPosition < (number + 1) * widthOfStreet);
-}
+};
 
 var inRails = function(xPosition) {
   for(var i = 0; i < numberOfStreets; i++) {
@@ -33,17 +34,46 @@ var inRails = function(xPosition) {
       return i;
     }
   }
-}
+};
 
 var positionForRail = function(number){
   var maxWidth = ((number + 1) * widthOfStreet) - widthOfSeparation;
   var minWidth = number * widthOfStreet;
   return (maxWidth + minWidth) / 2.0;
-}
+};
 
 var randomWithMax = function(max) {
   return Math.floor((Math.random() * max))
-}
+};
+
 var throwACoin = function(){
   return randomWithMax(2);
+};
+
+var setMiddleAnchor = function(sprite) {
+  sprite.anchor.x = 0.5;
+  sprite.anchor.y = 0.5;
+};
+
+// Scale rule
+// realWidth = sacle * widthTexture
+// portViewWidth * portViewScaleFactor = scale * widthTexture
+// scale = (portViewWidth * portViewScaleFactor) / widthTexture
+var scaleWith = function(sprite, portViewScaleFactor, textureLength, portViewlength) {
+  scaleFactor = (portViewScaleFactor * portViewlength) / textureLength;
+  sprite.scale.x = scaleFactor;
+  sprite.scale.y = scaleFactor;
+}
+
+var scaleWidth = function(sprite, factor, textureWidth) {
+  scaleWith(sprite, factor, textureWidth, width);
+};
+
+var scaleHeight = function(sprite, factor, textureHeight) {
+  scaleWith(sprite, factor, textureHeight, height);
+}
+
+var setPosition = function(sprite, x, y) {
+  sprite.position.x = x * width;
+  sprite.position.y = y * height;
 }
