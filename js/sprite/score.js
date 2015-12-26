@@ -15,6 +15,8 @@ var Score = function(name, score) {
   WIDTH_CHAR = WIDTH_FONT / CHAR_PER_COLUMN;
   HEIGHT_CHAR = HEIGHT_FONT / CHAR_PER_ROW;
 
+  WIDTH_IN_PERCENTAGE_OF_SCORE = 0.7;
+
   var fontTexture = PIXI.Texture.fromImage("../img/font.png");
   var textureCache = {};
 
@@ -37,7 +39,7 @@ var Score = function(name, score) {
 
   var center = function() {
       scoreWidth = (name + '' + score).length * WIDTH_CHAR + WIDTH_CHAR / 2;
-      container.position.x = (width - scoreWidth) / 2;
+      container.position.x = (1 - WIDTH_IN_PERCENTAGE_OF_SCORE) * width / 2;
   };
 
   var renderString = function(container, toRender, offset){
@@ -67,12 +69,22 @@ var Score = function(name, score) {
   var increment = function(inc) {
     score += inc;
     renderScore(score);
+    scale();
     center();
+  };
+
+  var scoreTextWidth = function() {
+    return (name + '' + score).length * WIDTH_CHAR + WIDTH_CHAR / 2;
+  };
+
+  var scale = function() {
+    scaleWidth(container, WIDTH_IN_PERCENTAGE_OF_SCORE, scoreTextWidth());
   };
 
   var initialize = function() {
     renderName(name);
     renderScore(score);
+    scale();
     center();
   };
 
