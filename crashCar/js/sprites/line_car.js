@@ -1,6 +1,6 @@
 var carsTextures = []
 
-var carTextures = PIXI.Texture.fromImage("img/crashcar/cars-steam.png");
+var carTextures = PIXI.Texture.fromImage("img/cars-steam.png");
 
 for(var i = 0; i < CAR_TEXTURES; i++) {
   var carTexture = new PIXI.Texture(carTextures, new PIXI.Rectangle((i + 1) * CAR_OFFSET,0, WIDTH_CAR, HEIGHT_CAR));

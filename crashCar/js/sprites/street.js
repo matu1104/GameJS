@@ -9,7 +9,7 @@ var Street = function() {
 
   for (var i = 1; i <= numberOfBlocks; i++) {
     for(var j = 0; j < (numberOfStreets - 1); j++) {
-      var streetTexture = PIXI.Texture.fromImage("img/crashcar/white.jpg");
+      var streetTexture = PIXI.Texture.fromImage("img/white.jpg");
       var streetLine = new PIXI.Sprite(streetTexture);
 
       streetLine.position.x = widthOfStreet * (j + 1) - widthOfSeparation;
