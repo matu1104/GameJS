@@ -24,16 +24,16 @@ var Street = function() {
   var update = function(dt) {
     for(var i = 0; i < container.children.length; i++) {
       var streetLine = container.children[i];
-      streetLine.position.y = streetLine.position.y + VELOCITY * dt
+      streetLine.position.y = streetLine.position.y + VELOCITY * dt;
 
       if (streetLine.position.y > height) {
         streetLine.position.y = height - 2 * numberOfBlocks * BLOCK_SIZE;
       }
     }
-  }
+  };
 
   return {
     update: update,
     container: container
   };
-}
+};

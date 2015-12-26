@@ -33,12 +33,12 @@ var Score = function(name, score) {
     textureCache['' + widthOffset + '-' + heightOffset] = fontTextureFromChar;
 
     return new PIXI.Sprite(fontTextureFromChar);
-  }
+  };
 
   var center = function() {
       scoreWidth = (name + '' + score).length * WIDTH_CHAR + WIDTH_CHAR / 2;
       container.position.x = (width - scoreWidth) / 2;
-  }
+  };
 
   var renderString = function(container, toRender, offset){
     for(var i = 0; i < toRender.length; i++){
@@ -81,5 +81,5 @@ var Score = function(name, score) {
   return {
     container: container,
     increment: increment
-  }
+  };
 };

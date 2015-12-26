@@ -14,11 +14,11 @@ var gameState = PLAYING_STATE;
 street = Street();
 stage.addChild(street.container);
 
-var currentRail = 2
+var currentRail = 2;
 
 mainCar = MainCar();
 mainCar.setPosition(positionForRail(currentRail));
-stage.addChild(mainCar.sprite)
+stage.addChild(mainCar.sprite);
 
 var rect = new PIXI.Graphics();
 rect.interactive = true;
@@ -57,12 +57,12 @@ var score = Score('Score', 0);
 stage.addChild(score.container);
 
 var onMenu = function() { window.location.replace('../'); };
-var onRetry = function() { window.location.reload() };
+var onRetry = function() { window.location.reload(); };
 var gameOver = GameOver(onMenu, onRetry);
 stage.addChild(gameOver.container);
 
 function animate(currentTime) {
-  dt =  100/6.0 // or currentTime - lastCurrentTime;
+  dt =  100/6.0; // or currentTime - lastCurrentTime;
   lastCurrentTime = currentTime;
   timeOnGame = timeOnGame + dt;
 

@@ -55,5 +55,5 @@ GameOver = function(onMenu, onRetry) {
     show: show,
     hide: hide,
     container: container
-  }
-}
+  };
+};

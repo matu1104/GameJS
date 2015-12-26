@@ -1,4 +1,4 @@
-var carsTextures = []
+var carsTextures = [];
 
 var carTextures = PIXI.Texture.fromImage("img/cars-steam.png");
 
@@ -14,7 +14,7 @@ var LineCar = function(){
 
     var thereIsACar = false;
     var thereIsASpace = false;
-    var cars = []
+    var cars = [];
 
     for(var i = 0; i < numberOfStreets; i++){
       if (throwACoin() == 1) {
@@ -35,7 +35,7 @@ var LineCar = function(){
       cars[randomWithMax(numberOfStreets)] = false;
     }
 
-    for (var i = 0; i < cars.length; i++){
+    for (i = 0; i < cars.length; i++) {
       if (cars[i]) {
         var carTexture = carsTextures[randomWithMax(CAR_TEXTURES)];
         var car = new PIXI.Sprite(carTexture);
@@ -53,21 +53,21 @@ var LineCar = function(){
     var update = function(dt){
       for(var i = 0; i < container.children.length; i++) {
         var car = container.children[i];
-        car.position.y = car.position.y + VELOCITY * dt
+        car.position.y = car.position.y + VELOCITY * dt;
 
         if (car.position.y > height) {
           return true;
         }
       }
       return false;
-    }
+    };
 
     var colisionDetected = function(rail) {
       var sampleCar = container.children[0];
        return sampleCar.position.y > CAR_Y_POSITION - (3 / 2 * HEIGHT_CAR) + 10 &&
        CAR_Y_POSITION - (HEIGHT_CAR / 2) + 10 > sampleCar.position.y &&
        cars[rail];
-    }
+    };
 
     return {
       update: update,

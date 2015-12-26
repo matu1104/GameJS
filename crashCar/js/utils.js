@@ -52,7 +52,7 @@ var throwACoin = function(){
 var setAnchor = function(sprite, x, y) {
   sprite.anchor.x = x;
   sprite.anchor.y = y;
-}
+};
 
 var setMiddleAnchor = function(sprite) {
   setAnchor(sprite, 0.5, 0.5);
@@ -66,7 +66,7 @@ var scaleWith = function(sprite, portViewScaleFactor, textureLength, portViewlen
   scaleFactor = (portViewScaleFactor * portViewlength) / textureLength;
   sprite.scale.x = scaleFactor;
   sprite.scale.y = scaleFactor;
-}
+};
 
 var scaleWidth = function(sprite, factor, textureWidth) {
   scaleWith(sprite, factor, textureWidth, width);
@@ -74,9 +74,9 @@ var scaleWidth = function(sprite, factor, textureWidth) {
 
 var scaleHeight = function(sprite, factor, textureHeight) {
   scaleWith(sprite, factor, textureHeight, height);
-}
+};
 
 var setPosition = function(sprite, x, y) {
   sprite.position.x = x * width;
   sprite.position.y = y * height;
-}
+};

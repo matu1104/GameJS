@@ -3,7 +3,7 @@ var MainCar = function(){
   var mainCarTexture = new PIXI.Texture(carTextures, new PIXI.Rectangle(0,0, WIDTH_CAR, HEIGHT_CAR));
   var mainCar = new PIXI.Sprite(mainCarTexture);
 
-	setMiddleAnchor(mainCar)
+	setMiddleAnchor(mainCar);
 
   mainCar.rotation = 3.14159;
 
@@ -17,11 +17,11 @@ var MainCar = function(){
 
   var hide = function() {
     mainCar.visible = false;
-  }
+  };
 
   return {
     sprite: mainCar,
     setPosition: setPosition,
     hide: hide
   };
-}
+};
