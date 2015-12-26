@@ -10,14 +10,13 @@ window.mobilecheck = function() {
   return check;
 }
 
-var width = 400;
-var height = 550;
+var width = window.innerWidth * 0.50;
+var height = window.innerHeight;
 
 if (mobilecheck()) {
-  document.body.removeChild(document.getElementById('title'));
   width = window.innerWidth;
-  height = window.innerHeight;
 }
+
 var CAR_Y_POSITION = height - HEIGHT_CAR / 2.0 - 20;
 
 var numberOfStreets = 5;
@@ -43,16 +42,20 @@ var positionForRail = function(number){
 };
 
 var randomWithMax = function(max) {
-  return Math.floor((Math.random() * max))
+  return Math.floor((Math.random() * max));
 };
 
 var throwACoin = function(){
   return randomWithMax(2);
 };
 
+var setAnchor = function(sprite, x, y) {
+  sprite.anchor.x = x;
+  sprite.anchor.y = y;
+}
+
 var setMiddleAnchor = function(sprite) {
-  sprite.anchor.x = 0.5;
-  sprite.anchor.y = 0.5;
+  setAnchor(sprite, 0.5, 0.5);
 };
 
 // Scale rule

@@ -16,16 +16,16 @@ GameOver = function(onMenu, onRetry) {
 
   var container = new PIXI.Container();
 
-  setMiddleAnchor(youLoseSprite);
-  setPosition(youLoseSprite, 0.5, 0.4);
+  setAnchor(youLoseSprite, 0.5, 1.0);
+  setPosition(youLoseSprite, 0.5, 0.35);
   scaleWidth(youLoseSprite, 0.9, YOULOSE_WIDTH);
 
-  setMiddleAnchor(menuSprite);
-  setPosition(menuSprite, 0.35, 0.55);
+  setAnchor(menuSprite, 1.0, 0.0);
+  setPosition(menuSprite, 0.45, 0.40);
   scaleWidth(menuSprite, 0.2, BUTTON_SIZE);
 
-  setMiddleAnchor(retrySprite);
-  setPosition(retrySprite, 0.65, 0.55);
+  setAnchor(retrySprite, 0.0, 0.0);
+  setPosition(retrySprite, 0.55, 0.40);
   scaleWidth(retrySprite, 0.2, BUTTON_SIZE);
 
   menuSprite.interactive = true;

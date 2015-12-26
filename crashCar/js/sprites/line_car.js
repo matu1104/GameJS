@@ -35,7 +35,7 @@ var LineCar = function(){
       cars[randomWithMax(numberOfStreets)] = false;
     }
 
-    for(var i = 0; i < cars.length; i++){
+    for (var i = 0; i < cars.length; i++){
       if (cars[i]) {
         var carTexture = carsTextures[randomWithMax(CAR_TEXTURES)];
         var car = new PIXI.Sprite(carTexture);
